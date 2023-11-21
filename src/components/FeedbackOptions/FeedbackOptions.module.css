@@ -1,0 +1,23 @@
+.btn__list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.btn {
+  padding: 20px 40px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #ac9f9f;
+}
+.btn:hover {
+  background-color: #fff;
+  border: 3px solid #ac9f9f;
+  transition: 300ms ease-in-out;
+}
