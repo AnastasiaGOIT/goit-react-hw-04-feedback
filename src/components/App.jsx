@@ -28,14 +28,13 @@ export const App = () => {
     );
     return total;
   };
+  const total = countTotalFeedback();
 
   const countPositiveFeedbackPercentage = () => {
-    const total = countTotalFeedback();
-
     const percentage = (good / total) * 100;
     return Math.round(percentage);
   };
-
+  const countPositive = countPositiveFeedbackPercentage();
   return (
     <div
       style={{
@@ -52,19 +51,16 @@ export const App = () => {
       <FeedbackOptions
         options={['good', 'neutral', 'bad']}
         onLeaveFeedback={onLeaveFeedback}
-        // onLeaveFeedbackGood={onLeaveFeedbackGood}
-        // onLeaveFeedbackNeutral={onLeaveFeedbackNeutral}
-        // onLeaveFeedbackBad={onLeaveFeedbackBad}
       />
-      {countTotalFeedback() === 0 ? (
+      {total === 0 ? (
         <Notification message="There is no feedback" />
       ) : (
         <Statistics
           good={good}
           neutral={neutral}
           bad={bad}
-          total={countTotalFeedback()}
-          positivePercentage={countPositiveFeedbackPercentage()}
+          total={total}
+          positivePercentage={countPositive}
         ></Statistics>
       )}
     </div>
